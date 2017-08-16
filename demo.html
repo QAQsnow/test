@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>threejs</title>
+	<script type="text/javascript" src="../js/three-73.js"></script>
+</head>
+<body>
+     <h2>threejs学习之路</h2>
+     <script type="text/javascript">
+     		var scene = new THREE.Scene();
+     		var camera = new THREE.PerspectiveCamera(75,window.innerWidth/window.innerHeight,.1,1000);
+     		var renderer = new THREE.WebGLRenderer();
+     		renderer.setSize(window.innerWidth,window.innerHeight);
+     		document.body.appendChild(renderer.domElement);
+     		var geometry = new THREE.CubeGeometry(1,1,1);
+     		var material = new THREE.MeshBasicMaterial({color:0xe4393c});
+     		var cube = new THREE.Mesh(geometry,material);scene.add(cube);
+     		camera.position.z=2;
+     		function render(){
+     			requestAnimationFrame(render);
+     			cube.rotation.x +=.1;
+     			cube.rotation.y +=.1;
+     			renderer.render(scene,camera);
+     		}
+     		render();
+     </script>
+</body>
+</html>
